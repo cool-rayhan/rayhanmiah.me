@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+       <title>Contact Me</title>
+       <style>
+  body {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 50px;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s, background-image 0.3s;
+}
+
+body.day-mode {
+    background-color: #ffffff;
+    color: #000000;
+    background-image: url('img/Desert_Sands/desert_sands_4.png');
+    background-size: cover;
+}
+
+body.night-mode {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    background-image: url('img/Desert_Sands/desert_sands_5.png');
+    background-size: cover;
+}
+
+.switch-container {
+    text-align: right;
+    margin: 20px;
+}
+
+.mode-toggle-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-image: url('img/rd.png');
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.mode-toggle-btn.light-mode {
+    background-image: url('img/dd.png');
+    color: white;
+}
+
+.group-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    border: 3px solid rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    padding: 10px;
+    width: 80%;
+    margin: 20px auto;
+    background-color: rgba(156, 156, 156, 0.3);
+}
+
+.group-title {
+    font-size: 2.0em;
+    font-family: fantasy;
+    margin-bottom: 5px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    width: 100px;
+    background-color: rgba(41, 41, 41, 0.5);
+    border: 3px solid #C7C7C7;
+    border-radius: 8px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.contact-item:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.8);
+    border-color: #F2C334;
+    color: rgba(255, 255, 255, 1);
+}
+
+.contact-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #FAAA2A;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.6);
+}
+
+.popup-content {
+    background-color: rgba(133, 133, 133, 0.9);
+    color: rgba(0, 0, 0, 1);
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #85D00B;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    font-family: 'Merriweather', serif;
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.popup-content.show {
+    transform: scale(1);
+}
+
+.popup-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.copy-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F6FAF1;
+    font-size: 20px;
+    transition: color 0.3s, transform 0.3s;
+    padding: 10px;
+}
+
+.copy-button i {
+    font-size: 20px;
+}
+
+.copy-button:hover {
+    color: #e67e22;
+    transform: scale(1.1);
+}
+
+.copy-button:hover .copy-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.copy-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    background-color: #1F1F1F;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 10px;
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    transform: translateX(50%);
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+
+
+.popup-image {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #85D00B;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.popup-title, .popup-text {
+    margin: 10px 0;
+}
+
+.popup-link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #FAAA2A;
+    background-color: #424242;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 2px solid #FAAA2A;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.popup-link:hover {
+    background-color: #FAAA2A;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #D90400;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.close:hover {
+    color: #85D00B;
+    transform: rotate(360deg);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+       </style>
+</head>
+<style>
+              /* Top bar styling */
+              #bupc-top-bar {
+                     position: fixed;
+                     top: 0px; /* Start hidden above the viewport */
+                     left: 0;
+                     width: 100%;
+                     height: 60px;
+                     background-color: #121212;
+                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                     display: flex;
+                     justify-content: space-between;
+                     align-items: center;
+                     padding: 0 20px;
+                     box-sizing: border-box;
+                     transition: top 0.3s ease-in-out;
+                     z-index: 1000;
+                     font-family: 'Roboto', sans-serif;
+              }
+
+              /* Logo styling */
+              .bupc-logo img {
+                     height: 100px;
+
+              }
+
+              /* Menu button styling */
+              .bupc-menu-button {
+                     cursor: pointer;
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
+                     width: 40px;
+                     height: 40px;
+                     border-radius: 50%;
+                     background-color: #696969;
+                     transition: all 0.3s ease-in-out;
+              }
+
+              .bupc-menu-button svg {
+                     width: 24px;
+                     height: 24px;
+                     fill: #fff;
+                     transition: transform 0.3s ease-in-out;
+              }
+
+              .bupc-menu-button.open svg {
+                     transform: rotate(45deg);
+              }
+
+              .bupc-menu-button.open svg line:nth-child(2) {
+                     opacity: 0;
+              }
+               /* Join button styling */
+
+        /* Menu overlay styling */
+        #bupc-nav {
+            height: 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.9);
+            overflow: hidden;
+            transition: height 0.5s ease-in-out;
+            z-index: 999;
+        }
+
+        #bupc-nav .bupc-overlay-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-height: 80%;
+            text-align: center;
+            overflow-y: auto;
+        }
+
+        #bupc-nav .bupc-overlay-content a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            transition: color 0.3s, background-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 5px 0;
+            border: 1px solid white;
+        }
+
+        #bupc-nav .bupc-overlay-content a:hover {
+            color: #f1f1f1;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Ensure smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+</style>
+<div id="bupc-top-bar">
+              <div class="bupc-menu-button" id="bupc-menu-button">
+                     <svg viewBox="0 0 100 80" width="40" height="40">
+                            <line x1="10" y1="20" x2="90" y2="20" stroke="white" stroke-width="10"></line>
+                            <line x1="10" y1="40" x2="90" y2="40" stroke="white" stroke-width="10"></line>
+                            <line x1="10" y1="60" x2="90" y2="60" stroke="white" stroke-width="10"></line>
+                     </svg>
+              </div>
+              <div class="bupc-logo">
+                     <img src="../../0730-unscreen.gif" alt="BUPC Logo">
+              </div>
+              <div class="switch-container">
+    <button id="mode-toggle-btn" class="mode-toggle-btn light-mode">Dark Mode</button>
+</div>
+       </div>
+
+       <!-- Menu Overlay -->
+       <div id="bupc-nav">
+              <div class="bupc-overlay-content">
+                     <a href="#home">Home</a>
+                     <a href="#about">About Me</a>
+                     <a href="#events">My Gallery</a>
+                     <a href="#contact">Portfolio</a>
+                     <a href="#mission">Post</a>
+
+              </div>
+       </div>
+
+
+
+       <script>
+              window.addEventListener('DOMContentLoaded', function() {
+                     var menuButton = document.getElementById('bupc-menu-button');
+                     var overlay = document.getElementById('bupc-nav');
+
+                     menuButton.addEventListener('click', function() {
+                            if (overlay.style.height === '100%') {
+                                   overlay.style.height = '0%';
+                                   menuButton.classList.remove('open');
+                            } else {
+                                   overlay.style.height = '100%';
+                                   menuButton.classList.add('open');
+                            }
+                     });
+              });
+
+
+       </script>
+<body class="day-mode">
+
+    <div class="group-container">
+        <div class="group-title">Personal</div>
+        <div class="contact-container">
+            <div class="contact-item" data-profile="phone">
+                <img src="img/telephone.png" alt="Phone">
+                <span>Phone</span>
+            </div>
+            <div class="contact-item" data-profile="email">
+                <img src="img/mail.png" alt="Email">
+                <span>Email</span>
+
+            </div>
+            <div class="contact-item" data-profile="WhatsApp">
+                <img src="img/what.png" alt="Email">
+                <span>WhatsApp</span>
+
+            </div>
+            <div class="contact-item" data-profile="Telegram">
+                <img src="img/tell.png" alt="Email">
+                <span>Telegram</span>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="group-container">
+        <div class="group-title">Social Media</div>
+        <div class="contact-container">
+            <div class="contact-item" data-profile="facebook">
+                <img src="img/facebook (1).png" alt="Facebook">
+                <span>Facebook</span>
+            </div>
+            <div class="contact-item" data-profile="instagram">
+                <img src="img/instagram.png" alt="Instagram">
+                <span>Instagram</span>
+            </div>
+            <div class="contact-item" data-profile="twitter">
+                <img src="img/x-social-media-round-icon.png" alt="Twitter">
+                <span>Twitter</span>
+            </div>
+            <div class="contact-item" data-profile="youtube">
+                <img src="1195679.png" alt="YouTube">
+                <span>YouTube</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="group-container">
+        <div class="group-title">Professional</div>
+        <div class="contact-container">
+            <div class="contact-item" data-profile="behance">
+                <img src="img/behance.png" alt="Behance">
+                <span>Behance</span>
+            </div>
+            <div class="contact-item" data-profile="fiverr">
+                <img src="img/fivv.png" alt="Fiverr">
+                <span>Fiverr</span>
+            </div>
+            <div class="contact-item" data-profile="linkedin">
+                <img src="img/linkk.png" alt="Fiverr">
+                <span>LinkedIn</span>
+            </div>
+             <div class="contact-item" data-profile="dribble">
+                <img src="img/dribb.png" alt="Fiverr">
+                <span>Dribbble</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="myPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <img id="popupImage" class="popup-image" src="" alt="Profile Image">
+        <div id="popupName" class="popup-name"></div>
+        <div id="popupDescription" class="popup-description"></div>
+        <div id="popupDetails" class="popup-details"></div> <br><br>
+        <a id="popupLink" class="popup-link" href="#" target="_blank">Visit Profile</a>
+        <button id="copyButton" class="copy-button">
+    <i class="fas fa-copy"></i>
+    <span class="copy-tooltip">Copy</span>
+</button>
+
+
+    </div>
+</div>
+
+
+
+       <script>
+              document.getElementById('mode-toggle-btn').addEventListener('click', function() {
+    document.body.classList.toggle('night-mode');
+    document.body.classList.toggle('day-mode');
+
+    if (document.body.classList.contains('night-mode')) {
+        this.textContent = 'Light Mode';
+        this.classList.remove('light-mode');
+    } else {
+        this.textContent = 'Dark Mode';
+        this.classList.add('light-mode');
+    }
+});
+
+const contactItems = document.querySelectorAll('.contact-item');
+const popup = document.getElementById('myPopup');
+const popupImage = document.getElementById('popupImage');
+const popupName = document.getElementById('popupName');
+const popupDescription = document.getElementById('popupDescription');
+const popupDetails = document.getElementById('popupDetails');
+const popupLink = document.getElementById('popupLink');
+const copyButton = document.getElementById('copyButton');
+const closeBtn = document.querySelector('.close');
+
+const profiles = {
+    facebook: {
+        name: 'Facebook',
+        picture: 'https://scontent.fdac138-2.fna.fbcdn.net/v/t39.30808-1/265407183_2789156254709708_1174500592293554028_n.jpg?stp=dst-jpg_s200x200&_nc_cat=104&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeHMwSE6J62ND4mfuSED7WJT5DPzobS42ankM_OhtLjZqbYzhy0sJWH5D-XdZ27j5efhuC3l8BjSgGvd2tQmln0K&_nc_ohc=jNJtg_z12o4Q7kNvgF3ps5N&_nc_ht=scontent.fdac138-2.fna&gid=AIsqYlVipDJNQovpPJAjBpO&oh=00_AYCDd0qKPnKoiggN118K_i3oj02-gOor0QvMwozFwJaXQw&oe=66B1DE97',
+        link: 'https://www.facebook.com/profile.php?id=100008460821946',
+        description: 'ID Name: Muhammad Rayhan',
+        details: 'Lets connect.'
+    },
+    instagram: {
+        name: 'Instagram',
+        picture: 'https://image.shutterstock.com/image-vector/instagram-icon-logo-vector-600w-1830752431.jpg',
+        link: 'https://www.instagram.com/yourprofile',
+        description: 'This is your Instagram profile.',
+        details: 'Additional details about your Instagram.'
+    },
+    twitter: {
+        name: 'Twitter',
+        picture: 'https://image.shutterstock.com/image-vector/twitter-icon-logo-vector-600w-1830752435.jpg',
+        link: 'https://www.twitter.com/yourprofile',
+        description: 'This is your Twitter profile.',
+        details: 'Additional details about your Twitter.'
+    },
+    phone: {
+        name: 'Phone',
+        picture: 'file:///G:/BUPC/BUPC/rayhan%20miah/2113_earth/contact/img/mail.jpg',
+        link: 'tel:+8801881680420',
+        description: 'Call me at +8801881680420 [Primary] <br> Alt: +8801972289970, +8801707584840',
+        details: 'If you are from outside of Bangladesh, Please contact me by WhatsApp.'
+    },
+    email: {
+        name: 'Email',
+        picture: 'file:///G:/BUPC/BUPC/rayhan%20miah/2113_earth/contact/img/mee.jpg',
+        link: 'mailto:rmiah19.phy@bu.ac.bd',
+        description: 'Email me at rmiah19.phy@bu.ac.bd.',
+        details: 'Additional email: md.rayhan.phy@gmail.com.'
+    },
+    behance: {
+        name: 'Behance',
+        picture: 'https://mir-s3-cdn-cf.behance.net/user/138/3b883f848508609.601028c2944b0.png',
+        link: 'https://www.behance.net/pixellabbd#',
+        description: '"Pixel Lab BD" Behance profile.',
+        details: 'Visit and observe my works.'
+    },
+    fiverr: {
+        name: 'Fiverr',
+        picture: 'https://image.shutterstock.com/image-vector/fiverr-icon-logo-vector-600w-1830752446.jpg',
+        link: 'https://www.fiverr.com/yourprofile',
+        description: 'This is your Fiverr profile.',
+        details: 'Additional details about your Fiverr.'
+    },
+    WhatsApp: {
+        name: 'WhatsApp',
+        picture: 'file:///G:/BUPC/BUPC/rayhan%20miah/2113_earth/contact/img/wha.png',
+        link: 'https://wa.me/8801881680420',
+        description: 'Muhammad Rayhan (8801881680420)',
+        details: 'Personal WhatsApp Number'
+    },
+    Telegram: {
+        name: 'Telegram',
+        picture: 'file:///G:/BUPC/BUPC/rayhan%20miah/2113_earth/contact/img/tel.jpg',
+        link: 'https://t.me/8801881680420',
+        description: 'Muhammad Rayhan (8801881680420)',
+        details: 'Personal Telegram Number'
+    },
+    linkedin: {
+        name: 'LinkedIn',
+        picture: 'file:///G:/BUPC/BUPC/rayhan%20miah/2113_earth/contact/img/link.jpeg',
+        link: 'https://www.linkedin.com/in/rayhan-miah/',
+        description: 'ID: Rayhan Miah',
+        details: 'Connect Me'
+    },
+    dribble: {
+        name: 'dribbble',
+        picture: 'file:///G:/BUPC/BUPC/rayhan%20miah/2113_earth/contact/img/drib.png',
+        link: 'https://dribbble.com/PixelLab-BD',
+        description: 'ID: PixelLab',
+        details: 'Judge my works'
+    },
+};
+
+contactItems.forEach(item => {
+    item.addEventListener('click', function() {
+        const profile = profiles[this.dataset.profile];
+        popupImage.src = profile.picture;
+        popupName.textContent = profile.name;
+        popupDescription.innerHTML = profile.description;
+        popupDetails.textContent = profile.details;
+        popupLink.href = profile.link;
+        copyButton.dataset.link = profile.link; // Set the link to be copied
+        openPopup();
+    });
+});
+
+copyButton.addEventListener('click', function() {
+    const link = copyButton.dataset.link;
+    navigator.clipboard.writeText(link).then(() => {
+        alert('Link copied to clipboard');
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+});
+
+function openPopup() {
+    popup.style.display = 'flex';
+    popup.classList.add('show');
+}
+
+function closePopup() {
+    popup.style.display = 'none';
+    popup.classList.remove('show');
+}
+
+
+       </script>
+</body>
+</html>
