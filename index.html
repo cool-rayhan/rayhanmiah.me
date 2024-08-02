@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Tooplate">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <title>Earth - Free HTML5 Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/tooplate-main.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <style type="text/css">
+    </style>
+  </head>
+
+  <body>
+
+
+   <!-- menu start-->
+       <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Premium Fixed Left-Side Menu Bar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .menu-bar-container {
+            position: relative;
+            width: 250px;
+            height: 100%;
+        }
+
+        .menu-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background: linear-gradient(135deg, #0A0F24 0%, #2A846D 100%);
+            color: white;
+            box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 2; /* Higher than the image */
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-bar h1 {
+            text-align: center;
+            font-size: 24px;
+            margin: 0 0 20px;
+            padding: 10px;
+            background-color: rgba(230, 230, 230, 0.8); /* Semi-transparent background */
+            color: black;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+        }
+        @media (max-width: 1024px){
+               .menu-bar h1{
+                    font-size:105px;
+               }
+
+             }
+              @media (max-width:764px){
+               .menu-bar h1{
+                    font-size:105px;
+               }
+
+             }
+
+        .menu-bar ul {
+            list-style: none;
+            padding: 10;
+        }
+
+        .menu-bar ul li {
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+             @media (max-width: 1024px){
+               .menu-bar ul li{
+                    padding:20px 5px;
+               }
+
+             }
+              @media (max-width:764px){
+               .menu-bar ul li{
+                    padding:20px 5px;
+               }
+
+             }
+
+   .menu-bar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+    .menu-bar ul li a {
+        font-size: 12px !important; /* Adjusted font size for better readability */
+    }
+}
+
+@media (max-width: 764px) {
+    .menu-bar ul li a {
+        font-size: 10px !important; /* Adjusted font size for better readability */
+    }
+}
+
+
+
+        .menu-bar ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            font-weight: 600;
+            transform: scale(1.1);
+        }
+
+        .menu-bar ul li a i {
+            display: block;
+            margin: 5 auto 10px;
+            font-size: 24px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .menu-bar ul li a:hover i {
+            transform: rotate(360deg);
+        }
+
+        .content {
+            margin-left: 250px;
+            padding:20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .menu-bar {
+                width:150px;
+            }
+            .content {
+                margin-left: 200px;
+            }
+            .menu-bar ul li a {
+                font-size: 16px;
+            }
+            .menu-bar ul li a i {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-bar {
+                width: 80px;
+            }
+            .content {
+                margin-left:20px;
+            }
+            .menu-bar h1 {
+                font-size: 20px;
+            }
+            .menu-bar ul li a {
+                font-size: 14px;
+            }
+            .menu-bar ul li a i {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-bar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .content {
+                margin-left: 0;
+            }
+            .menu-bar h1 {
+                font-size: 18px;
+            }
+            .menu-bar ul {
+                display: flex;
+                flex-direction: column;
+            }
+            .menu-bar ul li {
+                text-align: left;
+                padding: 10px 15px;
+                border-bottom: none;
+            }
+            .menu-bar ul li a {
+                font-size: 14px;
+            }
+            .menu-bar ul li a i {
+                font-size: 18px;
+            }
+        }
+        .gifsys {
+               width: 200px;
+        }
+            @media (max-width: 1024px) {
+              .gifsys {
+               width: 150px;
+        }
+            }
+            @media (max-width: 764px) {
+              .gifsys {
+               width: 70px;
+        }
+            }
+
+    </style>
+
+    <div class="menu-bar-container">
+        <div class="menu-bar">
+            <ul>
+                   <li><img src="../0730-unscreen.gif" class="gifsys"></li>
+                <li><a href="#homepage"><i class="fas fa-home"></i>HOMEPAGE</a></li>
+                <li><a href="#aboutus"><i class="fas fa-user"></i>ABOUT ME</a></li>
+                <li><a href="#ourgallery"><i class="fas fa-images"></i>MY GALLERY</a></li>
+                <li><a href="contact/contact me.htm"><i class="fas fa-phone"></i>CONTACT ME </a></li>
+                <li><a href="#portfolio"><i class="fas fa-briefcase"></i>PORTFOLIO</a></li>
+                <li><a href="#portfolio"><i class="fas fa-pen"></i>POSTS</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+          <!-- second part-->
+
+
+
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+    /* Adjust position for tablets */
+
+
+    .auto-slide-carousel {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .carousel-images {
+        display: flex;
+        transition: transform 1s ease-in-out;
+    }
+    @media (max-width: 1050px) {
+        .carousel-images {
+            width: 100%;
+            left: 0%;
+        }
+    }
+
+    /* Adjust position for phones */
+    @media (max-width: 768px) {
+        .carousel-images {
+          width: 100%;
+          left: 0%;
+        }
+    }
+
+    .carousel-images img {
+        padding-left: 205px;
+        width: 100%;
+        height: 700px;
+        flex-shrink: 0;
+    }
+    @media (max-width: 1050px) {
+        .carousel-images img {
+           padding-left: 80px;
+        }
+    }
+
+    /* Adjust position for phones */
+    @media (max-width: 768px) {
+        .carousel-images img {
+          padding-left: 80px;
+        }
+    }
+
+    .carousel-controls {
+        position: absolute;
+        bottom: 90px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .carousel-controls button {
+        background: rgba(69, 69, 69, 0.5);
+        color: white;
+        border: solid;
+        border-radius: 100px;
+        padding: 10px;
+        cursor: auto;
+    }
+
+    .thumbnails {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .thumbnails img {
+        width: 50px;
+        height: 50px;
+        margin: 0 5px;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    .thumbnails img.active {
+        border-color: yellow;
+    }
+
+
+</style>
+<div class="auto-slide-carousel">
+    <div class="carousel-images">
+        <img src="../png.png" data-src-pc="../png.png" data-src-phone="../lomba.jpg" data-src-tab="../lomba.jpg" alt="Image 1">
+        <img src="../thiikk.jpg" data-src-pc="../5225080.jpg" data-src-phone="../thiikk.jpg" data-src-tab="../thiikk.jpg" alt="Image 2">
+        <img src="../third.jpg" data-src-pc="../third.jpg" data-src-phone="G:\BUPC\BUPC\Earth Free Website Template - Free-CSS.com/long.jpg" data-src-tab="../third tb.jpg" alt="Image 3">
+    </div>
+    <div class="carousel-controls">
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+    </div>
+    <div class="thumbnails">
+        <img src="../square.jpg" data-src-pc="../square.jpg" data-src-phone="../square.jpg" data-src-tab="../square.jpg" alt="Thumbnail 1">
+        <img src="../hvoo.jpg" data-src-pc="../hvoo.jpg" data-src-phone="../hvoo.jpg" data-src-tab="../hvoo.jpg" alt="Thumbnail 2">
+        <img src="../kh.jpg" data-src-pc="../kh.jpg" data-src-phone="../kh.jpg" data-src-tab="../kh.jpg" alt="Thumbnail 3">
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const carousel = document.querySelector('.carousel-images');
+        const images = document.querySelectorAll('.carousel-images img');
+        const thumbnails = document.querySelectorAll('.thumbnails img');
+        let currentIndex = 0;
+        let interval;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            thumbnails.forEach((thumb, index) => {
+                thumb.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function slideToNextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel();
+        }
+
+        function slideToPrevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateCarousel();
+        }
+
+        function startAutoSlide() {
+            interval = setInterval(slideToNextImage, 6000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(interval);
+        }
+
+        document.getElementById('next').addEventListener('click', () => {
+            stopAutoSlide();
+            slideToNextImage();
+            startAutoSlide();
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            stopAutoSlide();
+            slideToPrevImage();
+            startAutoSlide();
+        });
+
+        thumbnails.forEach((thumb, index) => {
+            thumb.addEventListener('click', () => {
+                stopAutoSlide();
+                currentIndex = index;
+                updateCarousel();
+                startAutoSlide();
+            });
+        });
+
+        updateCarousel();
+        startAutoSlide();
+
+        function loadImageBasedOnScreenSize() {
+            images.forEach((img) => {
+                if (window.innerWidth <= 768) {
+                    img.src = img.getAttribute('data-src-phone');
+                } else if (window.innerWidth <= 1050) {
+                    img.src = img.getAttribute('data-src-tab');
+                } else {
+                    img.src = img.getAttribute('data-src-pc');
+                }
+            });
+
+            thumbnails.forEach((thumb) => {
+                if (window.innerWidth <= 768) {
+                    thumb.src = thumb.getAttribute('data-src-phone');
+                } else if (window.innerWidth <= 1050) {
+                    thumb.src = thumb.getAttribute('data-src-tab');
+                } else {
+                    thumb.src = thumb.getAttribute('data-src-pc');
+                }
+            });
+        }
+
+        window.addEventListener('resize', loadImageBasedOnScreenSize);
+        loadImageBasedOnScreenSize();
+    });
+</script>
+
+  </body>
+</html>
+
