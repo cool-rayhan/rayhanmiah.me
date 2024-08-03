@@ -9,7 +9,7 @@
     <meta name="author" content="Tooplate">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 
-    <title>Rayhan Miah</title>
+    <title>Earth - Free HTML5 Bootstrap Theme</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cool-rayhan.github.io/Rayhan-miah/bootstrap.min.css" rel="stylesheet">
@@ -39,6 +39,7 @@
             height: 100%;
         }
 
+
         .menu-bar {
             position: fixed;
             top: 0;
@@ -51,7 +52,16 @@
             z-index: 2; /* Higher than the image */
             transition: all 0.3s ease-in-out;
         }
-
+        @media (max-width: 768px) {
+            .menu-bar {
+                   width: 100px;
+                        }
+        }
+        @media (max-width: 480px) {
+            .menu-bar {
+                   width: 100px;
+                       }
+         }
         .menu-bar h1 {
             text-align: center;
             font-size: 24px;
@@ -86,18 +96,7 @@
             border-bottom: 2px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease-in-out;
         }
-             @media (max-width: 1024px){
-               .menu-bar ul li{
-                    padding:20px 5px;
-               }
 
-             }
-              @media (max-width:764px){
-               .menu-bar ul li{
-                    padding:20px 5px;
-               }
-
-             }
 
    .menu-bar ul li a {
     text-decoration: none;
@@ -145,67 +144,7 @@
         }
 
         /* Responsive Styles */
-        @media (max-width: 1024px) {
-            .menu-bar {
-                width:150px;
-            }
-            .content {
-                margin-left: 200px;
-            }
-            .menu-bar ul li a {
-                font-size: 16px;
-            }
-            .menu-bar ul li a i {
-                font-size: 20px;
-            }
-        }
 
-        @media (max-width: 768px) {
-            .menu-bar {
-                width: 80px;
-            }
-            .content {
-                margin-left:20px;
-            }
-            .menu-bar h1 {
-                font-size: 20px;
-            }
-            .menu-bar ul li a {
-                font-size: 14px;
-            }
-            .menu-bar ul li a i {
-                font-size: 18px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .menu-bar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-            .content {
-                margin-left: 0;
-            }
-            .menu-bar h1 {
-                font-size: 18px;
-            }
-            .menu-bar ul {
-                display: flex;
-                flex-direction: column;
-            }
-            .menu-bar ul li {
-                text-align: left;
-                padding: 10px 15px;
-                border-bottom: none;
-            }
-            .menu-bar ul li a {
-                font-size: 14px;
-            }
-            .menu-bar ul li a i {
-                font-size: 18px;
-            }
-        }
         .gifsys {
                width: 200px;
         }
@@ -259,20 +198,7 @@
         display: flex;
         transition: transform 1s ease-in-out;
     }
-    @media (max-width: 1050px) {
-        .carousel-images {
-            width: 100%;
-            left: 0%;
-        }
-    }
 
-    /* Adjust position for phones */
-    @media (max-width: 768px) {
-        .carousel-images {
-          width: 100%;
-          left: 0%;
-        }
-    }
 
     .carousel-images img {
         padding-left: 205px;
@@ -282,14 +208,16 @@
     }
     @media (max-width: 1050px) {
         .carousel-images img {
-           padding-left: 80px;
+           padding-left: 100px;
+           height: 100%;
         }
     }
 
     /* Adjust position for phones */
     @media (max-width: 768px) {
         .carousel-images img {
-          padding-left: 80px;
+          padding-left: 100px;
+          height: 100%;
         }
     }
 
@@ -336,18 +264,22 @@
 </style>
 <div class="auto-slide-carousel">
     <div class="carousel-images">
-        <img src="https://cool-rayhan.github.io/Rayhan-miah/png.png" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/png.png" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/lomba.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/lomba.jpg" alt="Image 1">
-        <img src="https://cool-rayhan.github.io/Rayhan-miah/thiikk.jpg" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/5225080.jpg" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/thiikk.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/thiikk.jpg" alt="Image 2">
-        <img src="https://cool-rayhan.github.io/Rayhan-miah/third.jpg" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/third.jpg" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/long.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/third tb.jpg" alt="Image 3">
+        <img src="https://cool-rayhan.github.io/Rayhan-miah/png.png" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/png.png" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/img1s.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/img1s.jpg" alt="Image 1">
+        <img src="https://cool-rayhan.github.io/Rayhan-miah/thiikk.jpg" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/5225080.jpg" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/tour.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/tour.jpg" alt="Image 2">
+        <img src="https://cool-rayhan.github.io/Rayhan-miah/third.jpg" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/third.jpg" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/edu.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/edu.jpg" alt="Image 3">
+        <img src="https://cool-rayhan.github.io/Rayhan-miah/TOU.jpg" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/TOU.jpg" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/blu.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/blu.jpg" alt="Image 4">
+        <img src="https://cool-rayhan.github.io/Rayhan-miah/bdb.jpg" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/bdb.jpg" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/gree.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/gree.jpg" alt="Image 5">
     </div>
     <div class="carousel-controls">
         <button id="prev">&lt;</button>
         <button id="next">&gt;</button>
     </div>
     <div class="thumbnails">
-        <img src="https://cool-rayhan.github.io/Rayhan-miah/square.jpg" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/square.jpg" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/square.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/square.jpg" alt="Thumbnail 1">
-        <img src="https://cool-rayhan.github.io/Rayhan-miah/hvoo.jpg" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/hvoo.jpg" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/hvoo.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/hvoo.jpg" alt="Thumbnail 2">
+        <img src="https://cool-rayhan.github.io/Rayhan-miah/square.jpg" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/square.jpg" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/simg1s.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/simg1s.jpg" alt="Thumbnail 1">
+        <img src="https://cool-rayhan.github.io/Rayhan-miah/hvoo.jpg" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/hvoo.jpg" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/stour.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/stour.jpg" alt="Thumbnail 2">
         <img src="https://cool-rayhan.github.io/Rayhan-miah/kh.jpg" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/kh.jpg" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/kh.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/kh.jpg" alt="Thumbnail 3">
+        <img src="https://cool-rayhan.github.io/Rayhan-miah/stou.jpg" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/stou.jpg" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/sblu.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/sblu.jpg" alt="Thumbnail 4">
+        <img src="https://cool-rayhan.github.io/Rayhan-miah/sbdb.jpg" data-src-pc="https://cool-rayhan.github.io/Rayhan-miah/sbdb.jpg" data-src-phone="https://cool-rayhan.github.io/Rayhan-miah/gree.jpg" data-src-tab="https://cool-rayhan.github.io/Rayhan-miah/gree.jpg" alt="Thumbnail 5">
     </div>
 </div>
 
