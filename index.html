@@ -32,7 +32,6 @@
    <!-- menu start-->
        <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Premium Fixed Left-Side Menu Bar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -178,11 +177,7 @@
         </div>
     </div>
 
-<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-
-    <dotlottie-player src="https://lottie.host/f8260db9-ef2f-4fef-8b51-89e44df54530/o8zjg7PM13.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
-
-          <!-- second part-->
+   <!-- second part-->
 
 
 
@@ -370,3 +365,49 @@
 
   </body>
 </html>
+<!--loading page-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .loading-wrapper {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #ffffff; /* Adjust background color if needed */
+            z-index: 9999;
+        }
+
+        .main-content {
+            display: none;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+
+    <div class="loading-wrapper">
+        <dotlottie-player src="https://lottie.host/16f6efaf-64a8-4e67-8a27-f1856da97468/fgxbuIzICb.json" background="#24A8AF" speed="1" style="width: 300px; height: 300px" direction="1" playMode="normal" autoplay></dotlottie-player>
+    </div>
+    
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.loading-wrapper').style.display = 'none';
+                document.querySelector('.main-content').style.display = 'block';
+            }, 5000); // 5000 milliseconds = 5 seconds
+        });
+    </script>
+
+</html>
+
