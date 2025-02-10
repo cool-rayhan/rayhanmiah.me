@@ -1,144 +1,196 @@
-jQuery(document).ready(function($) {
 
-	'use strict';
 
-        $('.owl-carousel').owlCarousel({
-            items:4,
-            lazyLoad:true,
-            dots:true,
-            responsiveClass:true,
-                responsive:{
-                    0:{
-                        items:1,
-                    },
-                    650:{
-                        items:2,
-                    },
-                    900:{
-                        items:3,
-                    },
-                    1200:{
-                        items:4,
-                    }
-                }
+(function() {
+  "use strict";
+
+  /**
+   * Apply .scrolled class to the body as the page is scrolled down
+   */
+  function toggleScrolled() {
+    const selectBody = document.querySelector('body');
+    const selectHeader = document.querySelector('#header');
+    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
+    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+  }
+
+  document.addEventListener('scroll', toggleScrolled);
+  window.addEventListener('load', toggleScrolled);
+
+  /**
+   * Mobile nav toggle
+   */
+  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+
+  function mobileNavToogle() {
+    document.querySelector('body').classList.toggle('mobile-nav-active');
+    mobileNavToggleBtn.classList.toggle('bi-list');
+    mobileNavToggleBtn.classList.toggle('bi-x');
+  }
+  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+
+  /**
+   * Hide mobile nav on same-page/hash links
+   */
+  document.querySelectorAll('#navmenu a').forEach(navmenu => {
+    navmenu.addEventListener('click', () => {
+      if (document.querySelector('.mobile-nav-active')) {
+        mobileNavToogle();
+      }
+    });
+
+  });
+
+  /**
+   * Toggle mobile nav dropdowns
+   */
+  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+    navmenu.addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentNode.classList.toggle('active');
+      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+      e.stopImmediatePropagation();
+    });
+  });
+
+  /**
+   * Preloader
+   */
+  const preloader = document.querySelector('#preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      preloader.remove();
+    });
+  }
+
+  /**
+   * Scroll top button
+   */
+  let scrollTop = document.querySelector('.scroll-top');
+
+  function toggleScrollTop() {
+    if (scrollTop) {
+      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+    }
+  }
+  scrollTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  window.addEventListener('load', toggleScrollTop);
+  document.addEventListener('scroll', toggleScrollTop);
+
+  /**
+   * Animation on scroll function and init
+   */
+  function aosInit() {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }
+  window.addEventListener('load', aosInit);
+
+  /**
+   * Init typed.js
+   */
+  const selectTyped = document.querySelector('.typed');
+  if (selectTyped) {
+    let typed_strings = selectTyped.getAttribute('data-typed-items');
+    typed_strings = typed_strings.split(',');
+    new Typed('.typed', {
+      strings: typed_strings,
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 2000
+    });
+  }
+
+  /**
+   * Initiate Pure Counter
+   */
+  new PureCounter();
+
+  /**
+   * Animate the skills items on reveal
+   */
+  let skillsAnimation = document.querySelectorAll('.skills-animation');
+  skillsAnimation.forEach((item) => {
+    new Waypoint({
+      element: item,
+      offset: '80%',
+      handler: function(direction) {
+        let progress = item.querySelectorAll('.progress .progress-bar');
+        progress.forEach(el => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%';
         });
+      }
+    });
+  });
 
+  /**
+   * Init swiper sliders
+   */
+  function initSwiper() {
+    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+      let config = JSON.parse(
+        swiperElement.querySelector(".swiper-config").innerHTML.trim()
+      );
 
-        $(function() {
-            $( "#tabs" ).tabs();
+      if (swiperElement.classList.contains("swiper-tab")) {
+        initSwiperWithCustomPagination(swiperElement, config);
+      } else {
+        new Swiper(swiperElement, config);
+      }
+    });
+  }
+
+  window.addEventListener("load", initSwiper);
+
+  /**
+   * Initiate glightbox
+   */
+  const glightbox = GLightbox({
+    selector: '.glightbox'
+  });
+
+  /**
+   * Init isotope layout and filters
+   */
+  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
+    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
+    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+
+    let initIsotope;
+    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
+      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+        itemSelector: '.isotope-item',
+        layoutMode: layout,
+        filter: filter,
+        sortBy: sort
+      });
+    });
+
+    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
+      filters.addEventListener('click', function() {
+        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+        this.classList.add('filter-active');
+        initIsotope.arrange({
+          filter: this.getAttribute('data-filter')
         });
-
-
-        $(function(){
-        
-            $('#thumbnail li').click(function(){
-                var thisIndex = $(this).index()
-                    
-                if(thisIndex < $('#thumbnail li.active').index()){
-                    prevImage(thisIndex, $(this).parents("#thumbnail").prev("#image-slider"));
-                }else if(thisIndex > $('#thumbnail li.active').index()){
-                    nextImage(thisIndex, $(this).parents("#thumbnail").prev("#image-slider"));
-                }
-                    
-                $('#thumbnail li.active').removeClass('active');
-                $(this).addClass('active');
-
-                });
-            });
-
-        var width = $('#image-slider').width();
-
-        function nextImage(newIndex, parent){
-            parent.find('li').eq(newIndex).addClass('next-img').css('left', width).animate({left: 0},600);
-            parent.find('li.active-img').removeClass('active-img').css('left', '0').animate({left: -width},600);
-            parent.find('li.next-img').attr('class', 'active-img');
+        if (typeof aosInit === 'function') {
+          aosInit();
         }
-        function prevImage(newIndex, parent){
-            parent.find('li').eq(newIndex).addClass('next-img').css('left', -width).animate({left: 0},600);
-            parent.find('li.active-img').removeClass('active-img').css('left', '0').animate({left: width},600);
-            parent.find('li.next-img').attr('class', 'active-img');
-        }
+      }, false);
+    });
 
-        /* Thumbails */
-        var ThumbailsWidth = ($('#image-slider').width() - 18.5)/7;
-        $('#thumbnail li').find('img').css('width', ThumbailsWidth);
+  });
 
-
-
-        $(".seq-preloader").fadeOut(); // will first fade out the loading animation
-        $(".sequence").delay(500).fadeOut("slow"); // will fade out the white DIV that covers the website.
-            
-        
-        $(function() {
-  
-        function showSlide(n) {
-            // n is relative position from current slide
-          
-            // unbind event listener to prevent retriggering
-            $body.unbind("mousewheel");
-          
-            // increment slide number by n and keep within boundaries
-            currSlide = Math.min(Math.max(0, currSlide + n), $slide.length-1);
-            
-            var displacment = window.innerWidth*currSlide;
-            // translate slides div across to appropriate slide
-            $slides.css('transform', 'translateX(-' + displacment + 'px)');
-            // delay before rebinding event to prevent retriggering
-            setTimeout(bind, 700);
-            
-            // change active class on link
-            $('nav a.active').removeClass('active');
-            $($('a')[currSlide]).addClass('active');
-            
-        }
-      
-        function bind() {
-             $body.bind('false', mouseEvent);
-          }
-      
-        function mouseEvent(e, delta) {
-            // On down scroll, show next slide otherwise show prev slide
-            showSlide(delta >= 0 ? -1 : 1);
-            e.preventDefault();
-        }
-        
-        $('nav a, .main-btn a').click(function(e) {
-            // When link clicked, find slide it points to
-            var newslide = parseInt($(this).attr('href')[1]);
-            // find how far it is from current slide
-            var diff = newslide - currSlide - 1;
-            showSlide(diff); // show that slide
-            e.preventDefault();
-        });
-      
-        $(window).resize(function(){
-          // Keep current slide to left of window on resize
-          var displacment = window.innerWidth*currSlide;
-          $slides.css('transform', 'translateX(-'+displacment+'px)');
-        });
-        
-        // cache
-        var $body = $('body');
-        var currSlide = 0;
-        var $slides = $('.slides');
-        var $slide = $('.slide');
-      
-        // give active class to first link
-        $($('nav a')[0]).addClass('active');
-        
-        // add event listener for mousescroll
-        $body.bind('false', mouseEvent);
-    })        
-
-
-        $(window).on("scroll", function() {
-            if($(window).scrollTop() > 100) {
-                $(".header").addClass("active");
-            } else {
-                //remove the background property so it comes transparent again (defined in your css)
-               $(".header").removeClass("active");
-            }
-        });
-
-
-});
+})();
