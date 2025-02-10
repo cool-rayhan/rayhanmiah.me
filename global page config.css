@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: url(https://cool-rayhan.github.io/rayhanmiah.me/bgb.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 400;
+  color: #8c8c8c; /* Font color for dark mode */
+  position: relative;
+  transition: background 0.2s linear, color 0.2s linear;
+}
+
+/* Light mode styles */
+body.light {
+  background: url(https://cool-rayhan.github.io/rayhanmiah.me/bgw.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #000; /* Font color for light mode */
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+
+
+        .logogg {
+            width: 100%; /* Makes the logo full-width on PC view */
+            height: auto; /* Maintains the aspect ratio */
+        }
+
+        /* For Mobile View */
+        @media only screen and (max-width: 768px) {
+            .logogg {
+                width: 50%; /* Makes the logo half-width on mobile view */
+                height: auto; /* Maintains the aspect ratio */
+            }
+        }
+                    .scrollProgressContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #000000;
+    z-index: 9999;
+}
+
+.scrollProgressBar {
+    height: 100%;
+    width: 0;
+    background-color: #18d26e;
+    transition: width 0.25s;
+}
+/*for popup contacts*/
+        /* For PC View */
+
+    .contact-btn {
+    cursor: pointer;
+    margin: 10px;
+    display: inline-block;
+    border: 3px solid #2ecc71;
+    padding: 12px;
+    border-radius: 50%; /* Changed to 50% for a circular shape */
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 15px; /* Adjusted font size to fit better in the circular shape */
+    color: #fff;
+    text-align: center; /* Centered the icon */
+    line-height: 0; /* Adjusted line-height for better icon placement */
+}
+
+
+        .contact-btn:hover {
+            background: rgba(203, 203, 203, 0.47);
+            transform: scale(1.1);
+        }
+
+        /* Unique Popup Container */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Unique Popup Box */
+        .popup-box-content {
+            background: rgba(78, 78, 78, 0.45);
+            padding: 25px;
+            border: 3px solid rgba(123, 232, 64, 0.69);
+            border-radius: 20px;
+            position: relative;
+            text-align: center;
+            max-width: 400px;
+            width: 80%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            color: #fff;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        /* Popup content */
+        .popup-box-content img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 4px solid rgba(100, 196, 103, 0.84);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup-box-content h2 {
+            margin: 10px 0;
+            color: #7cff2c;
+        }
+
+        .popup-box-content p {
+            margin: 10px 0;
+            color: #ddd;
+        }
+
+        .popup-box-content .visit-btn, .popup-box-content .copy-btn {
+            background-color: rgba(16, 16, 16, 0.99);
+            color: #fff;
+            border: 1px solid #ffbb2c;;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .popup-box-content .visit-btn:hover, .popup-box-content .copy-btn:hover {
+            background-color: rgba(78, 78, 77, 0.79);
+            transform: scale(1.05);
+        }
+
+        /* Close button */
+       .popup-box-content {
+    position: relative; /* Ensure the popup content is positioned relative */
+    padding: 20px; /* Add padding if needed */
+}
+
+.popup-box-content .popup-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    background-color: transparent; /* No background */
+    border: none;
+    color: #e74c3c; /* Red icon color */
+    border-radius: 100%; /* Circular design */
+    width: 30px; 
+    height: 30px;
+    font-size: 40px;
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 10; /* Ensure the button is on top of other content */
+    box-shadow: none; /* Remove any box shadow if present */
+}
+
+.popup-box-content .popup-close-btn:hover {
+    color: yellow; /* Yellow icon color on hover */
+    transform: rotate(360deg); /* Rotating animation */
+}
