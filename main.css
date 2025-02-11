@@ -127,11 +127,11 @@ h6 {
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 9999;
-   height: 85px;
+   height: 70px;
 }
  @media(max-width: 992px) {  /* Tablet */
     .header {
-     height: 75px;
+     height: 71px;
     }
         }
 
@@ -152,7 +152,7 @@ h6 {
   transition: all 0.5s ease-in-out;
   z-index: 997;
   mix-blend-mode: screen; 
- height: 85px;
+ height: 70px;
 }
  @media (max-width: 992px) {  /* Tablet */
     .header2 {
