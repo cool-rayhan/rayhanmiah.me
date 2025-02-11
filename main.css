@@ -127,10 +127,21 @@ h6 {
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 9999;
+   height: 85px;
 }
+ @media(max-width: 992px) {  /* Tablet */
+    .header {
+     height: 75px;
+    }
+        }
 
+        @media (max-width: 600px) {  /* Mobile */
+            .header {
+     height: 60px;
+    }
+        }
 
-.header2 {
+.header{
   
   color: var(--default-color);
   background-color: var(--background-color);
@@ -141,9 +152,19 @@ h6 {
   transition: all 0.5s ease-in-out;
   z-index: 997;
   mix-blend-mode: screen; 
-
+ height: 85px;
 }
+ @media (max-width: 992px) {  /* Tablet */
+    .header2 {
+     height: 75px;
+    }
+        }
 
+        @media (max-width: 600px) {  /* Mobile */
+            .header2{
+     height: 60px;
+    }
+        }
 
 .header .logo {
   line-height: 1;
