@@ -121,19 +121,28 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: rgba(255, 255, 255, 0.1); /* Light transparent background */
+  --background-color: rgba(171, 171, 171, 0);
+  color: var(--default-color);
+  background-color: rgba(38, 38, 38, 0.68);
+  padding: 15px 0;
+  transition: all 0.5s;
+  z-index: 9999;
+}
+
+
+.header2 {
+  
   color: var(--default-color);
   background-color: var(--background-color);
-  backdrop-filter: blur(15px) brightness(1.2); /* Enhances glow effect */
-  -webkit-backdrop-filter: blur(15px) brightness(2); /* Safari support */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  backdrop-filter: blur(15px) brightness(1.5);
+  -webkit-backdrop-filter: blur(15px) brightness(10); 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
   padding: 15px 0;
   transition: all 0.5s ease-in-out;
   z-index: 997;
   mix-blend-mode: screen; 
 
 }
-
 
 
 .header .logo {
