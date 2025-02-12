@@ -123,48 +123,49 @@ h6 {
 .header {
   --background-color: rgba(171, 171, 171, 0);
   color: var(--default-color);
-  background-color: rgba(38, 38, 38, 0.68);
+  background-color: rgba(26, 26, 26, 0.74);
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 9999;
-   height: 70px;
+
 }
- @media(max-width: 992px) {  /* Tablet */
-    .header {
-     height: 71px;
-    }
-        }
 
-        @media (max-width: 600px) {  /* Mobile */
-            .header {
-     height: 60px;
-    }
-        }
 
-.header{
+.header2 {
   
   color: var(--default-color);
   background-color: var(--background-color);
-  backdrop-filter: blur(15px) brightness(1.5);
-  -webkit-backdrop-filter: blur(15px) brightness(10); 
+  backdrop-filter: blur(20px) brightness(1.5);
+  -webkit-backdrop-filter: blur(15px) brightness(15); 
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
   padding: 15px 0;
   transition: all 0.5s ease-in-out;
   z-index: 997;
-  mix-blend-mode: screen; 
- height: 70px;
-}
- @media (max-width: 992px) {  /* Tablet */
-    .header2 {
-     height: 75px;
-    }
-        }
+  mix-blend-mode: lighten; 
 
-        @media (max-width: 600px) {  /* Mobile */
-            .header2{
-     height: 60px;
-    }
-        }
+}
+
+.header,
+.header2 {
+  height: 80px; /* Adjust the height as needed */
+  display: flex;
+  align-items: center; /* Ensures content is vertically centered */
+}
+
+@media (max-width: 768px) {
+  .header,
+  .header2 {
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header,
+  .header2 {
+    height: 60px;
+  }
+}
+
 
 .header .logo {
   line-height: 1;
